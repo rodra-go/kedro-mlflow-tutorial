@@ -1,0 +1,1 @@
+{'base_path': '/Petrobras_AI/Simulador_AI/sgs', 'download': {'dir': 'data/01_raw/sgs', 'mode': 'sparse', 'file_only': True, 'session_ids': [22], 'env_cond': {'start_id': 1, 'end_id': 1000, 'step': 10, 'ids': [1, 2, 3, 4, 5]}}}

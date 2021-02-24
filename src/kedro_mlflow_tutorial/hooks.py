@@ -48,11 +48,12 @@ class ProjectHooks:
             A mapping from a pipeline name to a ``Pipeline`` object.
 
         """
-
         data_integration_pipeline = di.create_pipeline()
         data_engineering_pipeline = de.create_pipeline()
 
         return {
+            "di": data_integration_pipeline,
+            "de": data_engineering_pipeline,
             "__default__": data_integration_pipeline + data_engineering_pipeline,
         }
 

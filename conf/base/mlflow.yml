@@ -25,7 +25,7 @@ credentials: null  # must be a valid key in credentials.yml
 # where the runs are recorded). Change the name to
 # switch between different experiments
 experiment:
-  name: kedro_mlflow_tutorial
+  name: mlflow_ui_test
   create: True  # if the specified `name` does not exists, should it be created?
 
 
@@ -46,5 +46,5 @@ hooks:
 # UI-RELATED PARAMETERS -----------------
 
 ui:
-  port: null  # the port to use for the ui. Find a free port if null.
-  host: null  # the host to use for the ui. Default to "localhost" if null.
+  port: 5000  # the port to use for the ui. Find a free port if null.
+  host: 0.0.0.0  # the host to use for the ui. Default to "localhost" if null.

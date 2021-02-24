@@ -1,3 +1,0 @@
-kedro[pandas.CSVDataSet,profilers]==0.16.6
-kedro-viz==3.8.1
-kedro-mlflow==0.4.1
