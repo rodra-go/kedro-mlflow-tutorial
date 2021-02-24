@@ -1,0 +1,47 @@
+
+project_path: /usr/src/code/
+
+tpn:
+  server_ip: '10.1.1.52'
+  domain_name: 'tpn2'
+  shared_folder: 'projetos'
+
+sgs:
+  base_path: /Petrobras_AI/Simulador_AI/sgs
+  download:
+    dir: data/01_raw/sgs
+    mode: sparse # 'sparse' or 'std'
+    file_only: True
+    session_ids: [22]
+    env_cond:
+      start_id: 1 # only used if mode = 'sparse'
+      end_id: 1000 # only used if mode = 'sparse'
+      step: 10 # only used if mode = 'sparse'
+      ids: [1,2,3,4,5] # only used if mode = 'std'
+
+estimator:
+  # Expected Tx and Ty:
+  #
+  ## Período natural teórico aproximado
+  # import math as mt
+  #
+  # Kx = 140.19 #kN/m
+  # Ky = 346.73
+  # Mx = 226382.674+11935.514 #Toneladas 10^3 Kg
+  # My = 226382.674+167981.070  #Toneladas
+  # Tx = 2*mt.pi*mt.sqrt(Mx/Kx) = 259.0597514799401
+  # Ty = 2*mt.pi*mt.sqrt(My/Ky) = 211.90082574293476
+  expected_tp: 235.0
+  target_column: 'tp_x' # tp_x, tp_y, etc...
+  delta: 0.001
+  repetitions: 3
+  window_size: 7200
+
+regressor:
+  test_size: 0.2
+  valid_size: 0.1
+  shuffle: True
+  svr:
+    hyperp:
+      kernel: rbf
+      gamma: auto

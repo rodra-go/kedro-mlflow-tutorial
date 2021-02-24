@@ -1,0 +1,4 @@
+artifact_location: file:///usr/src/code/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: kedro_mlflow_tutorial
