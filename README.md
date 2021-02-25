@@ -1,5 +1,13 @@
 # Kedro MLFlow Tutorial
 
+# build docker container
+docker build -t kedro-mlflow-tutorial:1.0 .
+
+## run docker container
+docker run --rm --name kedro_mlflow_tutorial -dit -p 4141:4141 -p 8888:8888 -p 5000:5000 -v $(pwd):/usr/src/code/ kedro-mlflow-tutorial:1.0
+
+
+
 ## Overview
 
 This is your new Kedro project, which was generated using `Kedro 0.16.6`.
