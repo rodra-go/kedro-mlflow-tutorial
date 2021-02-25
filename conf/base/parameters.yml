@@ -41,7 +41,6 @@ regressor:
   test_size: 0.2
   valid_size: 0.1
   shuffle: True
-  svr:
-    hyperp:
-      kernel: rbf
-      gamma: auto
+  hyperp:
+    kernel: rbf
+    gamma: auto

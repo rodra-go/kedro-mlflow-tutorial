@@ -8,7 +8,7 @@ from typing import Tuple, Dict, Callable, Any, List, Union
 from kedro_mlflow_tutorial.utils.estimator import estimate_natural_period
 
 
-def transform_positions(
+def transform_coordinates(
         partitioned_input: Dict[str, Callable[[], Any]],
     ) -> Dict[str, pd.DataFrame]:
 
@@ -77,7 +77,7 @@ def apply_rotation_matrix(
     })
 
 
-def generate_master_data(
+def generate_feature_data(
         partitioned_input: Dict[str, Callable[[], Any]],
         expected_tp: float,
         target_column: 'str',
@@ -179,8 +179,8 @@ def generate_training_data(
 
     # Spliting the data
     X_train, X_valid, X_test,Y_train, Y_valid, Y_test = split_data(
-        X,
-        Y,
+        X_scaled,
+        Y_scaled,
         test_size,
         valid_size,
         shuffle,

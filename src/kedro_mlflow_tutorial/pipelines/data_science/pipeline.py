@@ -34,12 +34,9 @@ Delete this when you start working on your own Kedro project.
 
 from kedro.pipeline import Pipeline, node
 
-from erc.pipelines.data_science.nodes import (
-    estimator,
-    train_svm_regressor,
-    evaluate_svm_regressor,
-    train_svm_classifier,
-    evaluate_svm_classifier
+from kedro_mlflow_tutorial.pipelines.data_science.nodes import (
+    test,
+    train,
 )
 
 
@@ -47,85 +44,32 @@ def create_pipeline(**kwargs):
     return Pipeline(
         [
             node(
-                func=estimator,
+                func=train,
                 inputs=[
-                    "transformed_sgs_dataset",
-                    "params:estimator.sgs_session_id",
-                    "params:estimator.sgs_env_cond_id",
-                    "params:estimator.expected_tp",
-                    "params:estimator.target_columns",
-                    "params:estimator.delta",
-                    "params:estimator.repetitions",
-                    "params:estimator.window_size",
+                    "x_train",
+                    "y_train",
+                    "params:regressor.hyperp.kernel",
+                    "params:regressor.hyperp.gamma",
                 ],
                 outputs=[
-                    "estimator_metrics",
-                    "estimator_tp_x_psd_figure",
-                    "estimator_tp_x_figure",
-                    "estimator_tp_y_psd_figure",
-                    "estimator_tp_y_figure"
-                ],
-                name="estimator",
-                tags=["data_science","estimator"],
-            ),
-            node(
-                func=train_svm_regressor,
-                inputs=[
-                    "regressor_x_train",
-                    "regressor_tp_x_train",
-                    "regressor_tp_y_train",
-                    "params:regressor.svr.hyperp.kernel",
-                    "params:regressor.svr.hyperp.gamma",
-                ],
-                outputs=[
-                    "regressor_tp_x_model",
-                    "regressor_tp_y_model",
+                    "regressor_model",
                     "regressor_model_training_metrics",
                 ],
-                name="svm_regressor_training",
-                tags=["data_science","regressor"],
+                name="model_training",
+                tags=["data_science"],
             ),
             node(
-                func=evaluate_svm_regressor,
+                func=test,
                 inputs=[
-                    "regressor_tp_x_model",
-                    "regressor_tp_y_model",
-                    "regressor_x_scaler",
-                    "regressor_tp_x_scaler",
-                    "regressor_tp_y_scaler",
-                    "regressor_x_test",
-                    "regressor_tp_x_test",
-                    "regressor_tp_y_test",
+                    "regressor_model",
+                    "x_scaler",
+                    "y_scaler",
+                    "x_test",
+                    "y_test",
                 ],
                 outputs="regressor_model_testing_metrics",
-                name="svm_regressor_testing",
-                tags=["data_science","regressor"],
+                name="model_testing",
+                tags=["data_science"],
             ),
-            node(
-                func=train_svm_classifier,
-                inputs=[
-                    "classifier_x_train",
-                    "classifier_y_train",
-                    "params:classifier.svc.hyperp.kernel",
-                    "params:classifier.svc.hyperp.gamma",
-                ],
-                outputs=[
-                    "classifier_model",
-                    "classifier_model_training_metrics",
-                ],
-                name="svm_classifier_training",
-                tags=["data_science","classifier"],
-            ),
-            node(
-                func=evaluate_svm_classifier,
-                inputs=[
-                    "classifier_model",
-                    "classifier_x_test",
-                    "classifier_y_test",
-                ],
-                outputs="classifier_model_testing_metrics",
-                name="svm_classifier_testing",
-                tags=["data_science","classifier"],
-            )
         ]
     )

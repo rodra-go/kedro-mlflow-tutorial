@@ -35,8 +35,8 @@ Delete this when you start working on your own Kedro project.
 from kedro.pipeline import Pipeline, node
 
 from kedro_mlflow_tutorial.pipelines.data_engineering.nodes import (
-    transform_positions,
-    generate_master_data,
+    transform_coordinates,
+    generate_feature_data,
     generate_training_data,
 )
 
@@ -52,7 +52,7 @@ def create_pipeline(**kwargs):
                 tags="data_engineering"
             ),
             node(
-                func=generate_master_data,
+                func=generate_feature_data,
                 inputs=[
                     "transformed_sgs_dataset",
                     "params:estimator.expected_tp",
@@ -61,15 +61,15 @@ def create_pipeline(**kwargs):
                     "params:estimator.repetitions",
                     "params:estimator.window_size",
                 ],
-                outputs="master_dataset",
-                name="generate_master_data",
+                outputs="feature_dataset",
+                name="generate_feature_data",
                 tags="data_engineering"
             ),
 
             node(
                 func=generate_training_data,
                 inputs=[
-                    "master_dataset",
+                    "feature_dataset",
                     "params:estimator.target_column",
                     "params:regressor.test_size",
                     "params:regressor.valid_size",

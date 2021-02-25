@@ -37,6 +37,7 @@ from kedro.versioning import Journal
 
 from kedro_mlflow_tutorial.pipelines import data_integration as di
 from kedro_mlflow_tutorial.pipelines import data_engineering as de
+from kedro_mlflow_tutorial.pipelines import data_science as ds
 
 
 class ProjectHooks:
@@ -50,11 +51,17 @@ class ProjectHooks:
         """
         data_integration_pipeline = di.create_pipeline()
         data_engineering_pipeline = de.create_pipeline()
+        data_science_pipeline = ds.create_pipeline()
 
         return {
             "di": data_integration_pipeline,
             "de": data_engineering_pipeline,
-            "__default__": data_integration_pipeline + data_engineering_pipeline,
+            "ds": data_science_pipeline,
+            "__default__": (
+                data_integration_pipeline
+                + data_engineering_pipeline
+                + data_science_pipeline
+            ),
         }
 
     @hook_impl

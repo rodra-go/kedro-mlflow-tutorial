@@ -15,16 +15,16 @@ sgs_dataset:
 transformed_sgs_dataset:
   layer: intermediate
   type: PartitionedDataSet
-  path: data/03_intermediate/sgs  # path to the location of partitions
+  path: data/02_intermediate/sgs  # path to the location of partitions
   dataset:
     type: pandas.CSVDataSet  # shorthand notation for the dataset which will handle individual partitions
     save_args:
       index: False
 
-master_dataset:
-  layer: master
+feature_dataset:
+  layer: feature
   type: pandas.CSVDataSet
-  filepath: data/03_primary/master.csv
+  filepath: data/04_feature/feature.csv
   save_args:
     index: False
 
@@ -85,3 +85,19 @@ y_valid:
   filepath: data/05_model_input/y_valid.csv
   save_args:
     index: False
+
+regressor_model:
+  layer: regressor_model
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: kedro_mlflow.io.models.MlflowModelSaverDataSet
+    flavor: mlflow.sklearn
+    filepath: data/06_models/regressor/svm
+
+regressor_model_training_metrics:
+  layer: regressor_model
+  type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
+
+regressor_model_testing_metrics:
+  layer: regressor_model
+  type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
