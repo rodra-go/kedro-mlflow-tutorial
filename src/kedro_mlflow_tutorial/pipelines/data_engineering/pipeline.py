@@ -45,10 +45,10 @@ def create_pipeline(**kwargs):
     return Pipeline(
         [
             node(
-                func=transform_positions,
+                func=transform_coordinates,
                 inputs="sgs_dataset",
                 outputs="transformed_sgs_dataset",
-                name="transform_positions",
+                name="transform_coordinates",
                 tags="data_engineering"
             ),
             node(

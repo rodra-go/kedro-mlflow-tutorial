@@ -1,6 +1,0 @@
-flavors:
-  sklearn:
-    pickled_model: model.pkl
-    serialization_format: cloudpickle
-    sklearn_version: 0.24.1
-utc_time_created: '2021-02-25 19:31:57.628221'

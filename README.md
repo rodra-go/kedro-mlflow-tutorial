@@ -1,11 +1,106 @@
 # Kedro MLFlow Tutorial
 
-# build docker container
-docker build -t kedro-mlflow-tutorial:1.0 .
+## 1. Setup
 
-## run docker container
+### 1.1. Create a new folder to use on the tutorial, then enter into it.
+
+```
+mkdir tutorial && cd tutorial
+```
+
+### 1.2. Clone the tutorial complete code
+
+```
+git clone https://github.com/rodra-go/kedro-mlflow-tutorial.git
+```
+
+### 1.3. Create a new folder to do the follow-trough of the tutorial, then enter into it.
+
+```
+mkdir follow-trough && cd follow-trough
+```
+
+### 1.4. Copy the Dockerfile from the complete code
+
+```
+cp ../kedro-mlflow-tutorial/Dockerfile .
+```
+
+### 1.5. Inicialize Git
+
+```
+git init
+```
+
+### 1.6. Build Docker Image from Dockerfile
+
+```
+docker build -t kedro-mlflow-tutorial:0.1 .
+```
+
+### 1.7. Run the Docker container (Linux)
+
+```
 docker run --rm --name kedro_mlflow_tutorial -dit -p 4141:4141 -p 8888:8888 -p 5000:5000 -v $(pwd):/usr/src/code/ kedro-mlflow-tutorial:1.0
+```
 
+### 1.8. Run the Docker container (windows)
+
+Replace the ```$(pwd)``` on the command above for the path given by the command
+```pwd``` on Windows Power Shell, then run the command.
+
+
+### 1.9. Open a bash in the container
+
+```
+docker exec -it kedro_mlflow_tutorial bash
+```
+
+## 2. Kedro
+
+### 2.1. Check Kedro installation
+
+```
+kedro info
+```
+
+### 2.2. Create a Kedro Project
+
+```
+kedro new
+```
+
+### 2.3. Move files properly
+
+```
+shopt -s dotglob && mv ./kedro-mlflow-tutorial/* . && rm -rf ./kedro-mlflow-tutorial
+```
+
+### 2.4. Initialize MLFlow plugin
+
+```
+kedro mlflow init
+```
+
+### 2.5. Run Jupyter Server
+
+```
+kedro jupyter notebook --ip 0.0.0.0
+```
+
+### 2.6. Run Kedro Viz
+
+```
+kedro viz --host 0.0.0.0
+```
+
+## 3. MLFlow
+
+### 3.1. Run MLFlow Server
+
+```
+mlflow ui --host 0.0.0.0 --backend-store-uri file:///usr/src/code/mlruns
+```
 
 
 ## Overview

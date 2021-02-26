@@ -25,7 +25,7 @@ credentials: null  # must be a valid key in credentials.yml
 # where the runs are recorded). Change the name to
 # switch between different experiments
 experiment:
-  name: mlflow_ui_test
+  name: 'Experiment 01: SVR Kernel Test'
   create: True  # if the specified `name` does not exists, should it be created?
 
 
