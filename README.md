@@ -4,8 +4,11 @@ This tutorial objective is to apply engineering best practices in machine learni
 
 ## Table of Contents
 
+
+
+
 - [1. Prerequisites](#1-prerequisites)
-  * [1.1. Install Docker Engine](11-install-docker-engine)
+  * [1.1. Install Docker Engine](#11-install-docker-engine)
   * [1.2. Install Docker](#12-install-docker)
   * [1.3. Install Git](#13-install-git)
 - [2. Setup](#2-setup)
