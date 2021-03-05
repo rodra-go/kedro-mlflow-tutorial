@@ -9,18 +9,18 @@ This tutorial objective is to apply engineering best practices in machine learni
 
 - [1. Prerequisites](#1-prerequisites)
   * [1.1. Install Docker Engine](#11-install-docker-engine)
-  * [1.2. Install Docker](#12-install-docker)
-  * [1.3. Install Git](#13-install-git)
+  * [1.2. Install Git](#12-install-git)
+  * [1.3. Install you favorite code editor](#13-install-you-favorite-code-editor)
 - [2. Setup](#2-setup)
   * [2.1. Create a new folder to use on the tutorial](#21-create-a-new-folder-to-use-on-the-tutorial)
   * [2.2. Clone the tutorial complete code](#22-clone-the-tutorial-complete-code)
-  * [2.3. Create a new folder to do the follow-trough of the tutorial](#23-create-a-new-folder-to-do-the-follow-trough)
+  * [2.3. Create a new folder to do the follow-trough of the tutorial](#23-create-a-new-folder-to-do-the-follow-trough-of-the-tutorial)
   * [2.4. Inicialize Git](#24-inicialize-git)
 - [3. Docker](#3-docker)
   * [3.1. Copy the Dockerfile-zero from the complete code](#31-copy-the-dockerfile-from-the-complete-code)
   * [3.1. Build Docker Image from Dockerfile](#31-build-docker-image-from-dockerfile)
-  * [3.2. Run the Docker container (Linux)](#32-run-the-docker-container-(linux))
-  * [3.3. Run the Docker container (Windows)](#33-run-the-docker-container-(windows))
+  * [3.2. Run the Docker container (Linux)](#32-run-the-docker-container-linux)
+  * [3.3. Run the Docker container (Windows)](#33-run-the-docker-container-windows)
   * [3.4. Open a bash in the container](#34-open-a-bash-in-the-container)
 - [4. Kedro](#4-kedro)
   * [4.1. Check Kedro installation](#41-check-kedro-installation)
@@ -28,8 +28,10 @@ This tutorial objective is to apply engineering best practices in machine learni
   * [4.3. Move files properly](#43-move-files-properly)
   * [4.4. Initialize MLFlow plugin](#44-initialize-mlflow-plugin)
   * [4.5 Copy the utils folder from the complete code](#45-copy-the-utils-folder-from-the-complete-code)
-  * [4.6. Run Jupyter Server](#46-run-jupyter-server)
-  * [4.7. Run Kedro Viz](#47-run-kedro-viz)
+  [4.6 Copy the conf folder from the complete code](#45-copy-the-conf-folder-from-the-complete-code)
+  [4.7 Copy the notebooks folder from the complete code](#45-copy-the-notebooks-folder-from-the-complete-code)
+  * [4.8. Run Jupyter Server](#46-run-jupyter-server)
+  * [4.9. Run Kedro Viz](#47-run-kedro-viz)
 - [5. MLFlow](#5-mlflow)
   * [5.1. Run MLFlow Server](#51-run-mlflow-server)
 
@@ -146,7 +148,7 @@ cp -R ../kedro-mlflow-tutorial/src/kedro_mlflow_tutorial/utils ./src/kedro_mlflo
 cp -R ../kedro-mlflow-tutorial/conf ./conf
 ```
 
-### 4.7 Copy the notebook folder from the complete code
+### 4.7 Copy the notebooks folder from the complete code
 
 ```
 cp -R ../kedro-mlflow-tutorial/notebooks ./notebooks
