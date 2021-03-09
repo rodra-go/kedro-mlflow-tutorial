@@ -30,8 +30,9 @@ This tutorial objective is to apply engineering best practices in machine learni
   * [4.5 Copy the utils folder from the complete code](#45-copy-the-utils-folder-from-the-complete-code)
   * [4.6 Copy the conf folder from the complete code](#45-copy-the-conf-folder-from-the-complete-code)
   * [4.7 Copy the notebooks folder from the complete code](#45-copy-the-notebooks-folder-from-the-complete-code)
-  * [4.8. Run Jupyter Server](#46-run-jupyter-server)
-  * [4.9. Run Kedro Viz](#47-run-kedro-viz)
+  * [4.8 Configure your credentials](#48-configure-your-credentials)
+  * [4.9. Run Jupyter Server](#49-run-jupyter-server)
+  * [4.10. Run Kedro Viz](#410-run-kedro-viz)
 - [5. MLFlow](#5-mlflow)
   * [5.1. Run MLFlow Server](#51-run-mlflow-server)
 
@@ -167,13 +168,13 @@ tpn:
 In case you don't have access to TPN-USP network, download the raw data [here](https://drive.google.com/file/d/1lDUEnU10FZRJLh0se3eoLfC5Xnero49_/view?usp=sharing) and extract its contents to ```./data/01_raw``` in your follow-trough directory.
 
 
-### 4.7. Run Jupyter Server
+### 4.9. Run Jupyter Server
 
 ```
 kedro jupyter notebook --ip 0.0.0.0
 ```
 
-### 4.8. Run Kedro Viz
+### 4.10. Run Kedro Viz
 
 ```
 kedro viz --host 0.0.0.0
