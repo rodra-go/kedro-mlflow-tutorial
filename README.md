@@ -1,6 +1,6 @@
 # Kedro MLFlow Tutorial
 
-This tutorial objective is to apply engineering best practices in machine learning development and experimentation using the [Kedro](https://kedro.readthedocs.io/en/stable/) framework along with a [Kedro's plugin](https://kedro-mlflow.readthedocs.io/en/stable/) for [MLFlow](https://mlflow.org/docs/latest/index.html). The information in this README file is limited, as the tutorial video is available [here](https://youtu.be/lliW6w_XkDU). So if the information here is not enough for you, please check the video (which is in Portuguese).
+This tutorial objective is to apply engineering best practices in machine learning development and experimentation using the [Kedro](https://kedro.readthedocs.io/en/stable/) framework along with a [Kedro's plugin](https://kedro-mlflow.readthedocs.io/en/stable/) for [MLFlow](https://mlflow.org/docs/latest/index.html). The information in this README file is limited, as the tutorial video is available [here](https://youtu.be/lzIf6oIRulE). So if the information here is not enough for you, please check the video (which is in Portuguese).
 
 ## Table of Contents
 
