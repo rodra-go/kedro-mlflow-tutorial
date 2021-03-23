@@ -165,7 +165,7 @@ tpn:
   password: <your_password>
 ```
 
-In case you don't have access to TPN-USP network, download the raw data [here](https://drive.google.com/file/d/1lDUEnU10FZRJLh0se3eoLfC5Xnero49_/view?usp=sharing) and extract its contents to ```./data/01_raw``` in your follow-trough directory.
+In case you don't have access to TPN-USP network, download the raw data [here](https://drive.google.com/file/d/1cc3HaWNhbKC8Q2Q0ytUDN-OH9af_l_5v/view?usp=sharing) and extract its contents to ```./data/01_raw``` in your follow-trough directory.
 
 
 ### 4.9. Run Jupyter Server
